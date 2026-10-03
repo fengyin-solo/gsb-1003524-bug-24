@@ -1,0 +1,86 @@
+import type { RainfallRecord } from './rainfall-domain'
+
+/**
+ * 雨量示例数据（按 2026-10-03 当天编排）。
+ * 其中 STAT-01 的 2026-10-02 08 时被故意放成两条重复登记，
+ * 首次读取时会按「保留最早采样时间、取最新雨量」的口径合并，用于演示历史脏数据修复。
+ */
+export const RAINFALL_SEED_RECORDS: RainfallRecord[] = [
+  {
+    id: 1,
+    recordNo: 'RAIN-0001',
+    stationNo: 'STAT-01',
+    date: '2026-10-02',
+    startHour: 8,
+    amount: 12.0,
+    sampledAt: '2026-10-02 09:02:10',
+    observer: '值班管理员',
+    status: '已通过',
+  },
+  {
+    id: 2,
+    recordNo: 'RAIN-0002',
+    stationNo: 'STAT-01',
+    date: '2026-10-02',
+    startHour: 8,
+    amount: 15.5,
+    sampledAt: '2026-10-02 09:20:41',
+    observer: '值班管理员',
+    status: '已通过',
+  },
+  {
+    id: 3,
+    recordNo: 'RAIN-0003',
+    stationNo: 'STAT-02',
+    date: '2026-10-03',
+    startHour: 8,
+    amount: 1.2,
+    sampledAt: '2026-10-03 09:01:05',
+    observer: '值班管理员',
+    status: '已采集',
+  },
+  {
+    id: 4,
+    recordNo: 'RAIN-0004',
+    stationNo: 'STAT-02',
+    date: '2026-10-03',
+    startHour: 9,
+    amount: 3.4,
+    sampledAt: '2026-10-03 10:02:18',
+    observer: '值班管理员',
+    status: '待审核',
+  },
+  {
+    id: 5,
+    recordNo: 'RAIN-0005',
+    stationNo: 'STAT-03',
+    date: '2026-10-03',
+    startHour: 8,
+    amount: 28.6,
+    sampledAt: '2026-10-03 09:03:52',
+    observer: '值班管理员',
+    status: '已通过',
+  },
+  {
+    id: 6,
+    recordNo: 'RAIN-0006',
+    stationNo: 'STAT-03',
+    date: '2026-10-03',
+    startHour: 9,
+    amount: 22.1,
+    sampledAt: '2026-10-03 10:04:36',
+    observer: '值班管理员',
+    status: '已通过',
+  },
+  {
+    id: 7,
+    recordNo: 'RAIN-0007',
+    stationNo: 'STAT-04',
+    date: '2026-10-03',
+    startHour: 9,
+    amount: 6.0,
+    sampledAt: '2026-10-03 10:06:12',
+    observer: '值班管理员',
+    status: '异常值',
+  },
+]
